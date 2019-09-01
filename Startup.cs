@@ -13,6 +13,9 @@ using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
+using webapplication.Helpers;
+using webapplication.Services;
 
 namespace webapplication
 {
@@ -31,19 +34,31 @@ namespace webapplication
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
- 
-                ValidIssuer = "http://localhost:5000",
-                ValidAudience = "http://localhost:5000",
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
-            };
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "http://localhost:5000",
+                    ValidAudience = "http://localhost:5000",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"))
+                };
             });
+
+            services.AddScoped<IUserService, UserService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("EnableCORS", builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials().Build();
+                });
+            });
+
+            services.AddDbContext<DataContext>(x => x.UseInMemoryDatabase("TestDb"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +78,7 @@ namespace webapplication
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseCors("EnableCORS");
         }
     }
 }

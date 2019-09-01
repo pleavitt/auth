@@ -12,3 +12,17 @@ C:\Users\paul.leavitt\source\repos\webapplication\obj\Debug\netcoreapp2.2\webapp
 C:\Users\paul.leavitt\source\repos\webapplication\obj\Debug\netcoreapp2.2\webapplication.RazorTargetAssemblyInfo.cache
 C:\Users\paul.leavitt\source\repos\webapplication\obj\Debug\netcoreapp2.2\webapplication.dll
 C:\Users\paul.leavitt\source\repos\webapplication\obj\Debug\netcoreapp2.2\webapplication.pdb
+C:\Users\Paul\dev\auth\bin\Debug\netcoreapp2.2\webapplication.deps.json
+C:\Users\Paul\dev\auth\bin\Debug\netcoreapp2.2\webapplication.runtimeconfig.json
+C:\Users\Paul\dev\auth\bin\Debug\netcoreapp2.2\webapplication.runtimeconfig.dev.json
+C:\Users\Paul\dev\auth\bin\Debug\netcoreapp2.2\webapplication.dll
+C:\Users\Paul\dev\auth\bin\Debug\netcoreapp2.2\webapplication.pdb
+C:\Users\Paul\dev\auth\obj\Debug\netcoreapp2.2\webapplication.csprojAssemblyReference.cache
+C:\Users\Paul\dev\auth\obj\Debug\netcoreapp2.2\webapplication.csproj.CoreCompileInputs.cache
+C:\Users\Paul\dev\auth\obj\Debug\netcoreapp2.2\webapplication.RazorAssemblyInfo.cache
+C:\Users\Paul\dev\auth\obj\Debug\netcoreapp2.2\webapplication.RazorAssemblyInfo.cs
+C:\Users\Paul\dev\auth\obj\Debug\netcoreapp2.2\webapplication.AssemblyInfoInputs.cache
+C:\Users\Paul\dev\auth\obj\Debug\netcoreapp2.2\webapplication.AssemblyInfo.cs
+C:\Users\Paul\dev\auth\obj\Debug\netcoreapp2.2\webapplication.RazorTargetAssemblyInfo.cache
+C:\Users\Paul\dev\auth\obj\Debug\netcoreapp2.2\webapplication.dll
+C:\Users\Paul\dev\auth\obj\Debug\netcoreapp2.2\webapplication.pdb
