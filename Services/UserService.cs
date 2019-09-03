@@ -2,15 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using JWTAuth.Models;
-using JWTAuth.Helpers;
 
 namespace JWTAuth.Services
 {
     public interface IUserService
     {
-        User Authenticate(User user);
-        IEnumerable<User> GetAll();
-        User GetById(int id);
+        // User Authenticate(User user);
+        // IEnumerable<User> GetAll();
+        // User GetById(int id);
         // User Create(User user, string password);
         // void Update(User user, string password = null);
         // void Delete(int id);
@@ -18,41 +17,41 @@ namespace JWTAuth.Services
 
     public class UserService : IUserService
     {
-        private DataContext _context;
+        // private DataContext _context;
 
-        public UserService(DataContext context)
-        {
-            _context = context;
-        }
+        // public UserService(DataContext context)
+        // {
+        //     _context = context;
+        // }
 
-        public User Authenticate(User user)
-        {
-            if (string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.PasswordHash))
-                return null;
+        // public User Authenticate(User user)
+        // {
+        //     if (string.IsNullOrEmpty(user.UserName) || string.IsNullOrEmpty(user.PasswordHash))
+        //         return null;
 
-            var foundUser = _context.Users.SingleOrDefault(x => x.UserName == user.UserName);
+        //     var foundUser = _context.Users.SingleOrDefault(x => x.UserName == user.UserName);
 
-            // check if username exists
-            if (foundUser == null)
-                return null;
+        //     // check if username exists
+        //     if (foundUser == null)
+        //         return null;
 
-            // check if password is correct
-            if (!VerifyPasswordHash(foundUser.PasswordHash, user.PasswordHash))
-                return null;
+        //     // check if password is correct
+        //     if (!VerifyPasswordHash(foundUser.PasswordHash, user.PasswordHash))
+        //         return null;
 
-            // authentication successful
-            return user;
-        }
+        //     // authentication successful
+        //     return user;
+        // }
 
-        public IEnumerable<User> GetAll()
-        {
-            return _context.Users;
-        }
+        // public IEnumerable<User> GetAll()
+        // {
+        //     return _context.Users;
+        // }
 
-        public User GetById(int id)
-        {
-            return _context.Users.Find(id);
-        }
+        // public User GetById(int id)
+        // {
+        //     return _context.Users.Find(id);
+        // }
 
         // public User Create(User user, string password)
         // {

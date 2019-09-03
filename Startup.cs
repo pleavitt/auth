@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using JWTAuth.Models;
 using JWTAuth.Data;
 
-
 namespace JWTAuth
 {
     public class Startup
@@ -54,7 +53,6 @@ namespace JWTAuth
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

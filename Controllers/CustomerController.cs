@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JWTAuth.Controllers
 {
-
-    [Route("api/customers")]
+    [Authorize]
+    [Route("api/[controller]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
