@@ -7,7 +7,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Security.Claims;
 using webapplication.Models;
-using webapplication.Services;
+using System.Threading.Tasks;
+
+using Microsoft.AspNetCore.Identity;
 
 namespace webapplication.Controllers
 {
@@ -15,32 +17,34 @@ namespace webapplication.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private IUserService _userService;
+        private UserManager<User> userManager;
 
-        public AuthController(IUserService userService)
+        public AuthController(UserManager<User> userManager)
         {
-            _userService = userService;
+            this.userManager = userManager;
         }
 
         // GET api/values
         [AllowAnonymous]
         [HttpPost("login")]
-        public IActionResult Login([FromBody]User user)
+        public async Task<IActionResult> Login([FromBody]LoginModel model)
         {
-            if (user == null)
+            var users = userManager.Users;
+            var user = await userManager.FindByNameAsync(model.UserName);
+            if (user != null && await userManager.CheckPasswordAsync(user, model.Password))
             {
-                return BadRequest("Invalid client request");
+
+                var token = generateJSONWebToken(model);
+
+                return Ok(new
+                {
+                    token = token,
+                });
             }
-
-            var fetchedUser = _userService.Authenticate(user);
-
-            if (fetchedUser == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
-
-            return Ok(fetchedUser);        
+            return Unauthorized();
         }
 
-        private string GenerateJSONWebToken(LoginModel userInfo)
+        private string generateJSONWebToken(LoginModel userInfo)
         {
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("superSecretKey@345"));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
