@@ -6,12 +6,12 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Security.Claims;
-using webapplication.Models;
+using JWTAuth.Models;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Identity;
 
-namespace webapplication.Controllers
+namespace JWTAuth.Controllers
 {
     [Route("api/auth")]
     [ApiController]

@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
-using webapplication.Models;
-using webapplication.Data;
+using JWTAuth.Models;
+using JWTAuth.Data;
 
 
-namespace webapplication
+namespace JWTAuth
 {
     public class Startup
     {

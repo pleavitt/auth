@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using webapplication.Models;
-using webapplication.Helpers;
+using JWTAuth.Models;
+using JWTAuth.Helpers;
 
-namespace webapplication.Services
+namespace JWTAuth.Services
 {
     public interface IUserService
     {

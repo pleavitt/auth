@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using webapplication.Models;
+using JWTAuth.Models;
 
-namespace webapplication.Helpers
+namespace JWTAuth.Helpers
 {
     public class DataContext : DbContext
     {

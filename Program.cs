@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace webapplication
+namespace JWTAuth
 {
     public class Program
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace webapplication.Controllers
+namespace JWTAuth.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

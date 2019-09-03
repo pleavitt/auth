@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
-using webapplication.Models;
+using JWTAuth.Models;
 
-namespace webapplication.Data
+namespace JWTAuth.Data
 {
     public class SeedDB
     {
