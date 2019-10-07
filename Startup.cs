@@ -49,7 +49,7 @@ namespace JWTAuth
                 });
             });
 
-            services.AddDbContext<ApplicationDbContext>(x => x.UseInMemoryDatabase("TestDb"));
+            services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("AuthDB")));
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
