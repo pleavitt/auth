@@ -25,6 +25,7 @@ build/
 bld/
 bin/
 obj/
+publish/
 msbuild.log
 msbuild.err
 msbuild.wrn
