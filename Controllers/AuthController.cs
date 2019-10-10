@@ -44,26 +44,26 @@ namespace JWTAuth.Controllers
             return Unauthorized();
         }
 
-        // // POST api/accounts
-        // [HttpPost]
-        // public async Task<IActionResult> Post([FromBody]RegistrationViewModel model)
-        // {
-        //     if (!ModelState.IsValid)
-        //     {
-        //         return BadRequest(ModelState);
-        //     }
+        // POST api/auth/register
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody]RegisterModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //     var userIdentity = _mapper.Map(model);
+            var newUser = new User { UserName = model.UserName, Email = model.Email };
 
-        //     var result = await _userManager.CreateAsync(userIdentity, model.Password);
+            var result = await userManager.CreateAsync(newUser, model.Password);
 
-        //     if (!result.Succeeded) return new BadRequestObjectResult(Errors.AddErrorsToModelState(result, ModelState));
+            if (!result.Succeeded) {
+                return new BadRequestObjectResult(result.Errors.ToString());
+            }
 
-        //     await _appDbContext.Customers.AddAsync(new Customer { IdentityId = userIdentity.Id, Location = model.Location });
-        //     await _appDbContext.SaveChangesAsync();
-
-        //     return new OkObjectResult("Account created");
-        // }
+            return new OkObjectResult("Account created");
+        }
 
         private string generateJSONWebToken(LoginModel userInfo)
         {
